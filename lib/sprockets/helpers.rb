@@ -156,14 +156,14 @@ module Sprockets
       output
     end
 
-    def javascript_tag(source, options = {})
+    def javascript_asset_tag(source, options = {})
       options = Helpers.default_path_options[:javascript_path].merge(options)
       asset_tag(source, options) do |path|
         %Q(<script src="#{path}"></script>)
       end
     end
 
-    def stylesheet_tag(source, options = {})
+    def stylesheet_asset_tag(source, options = {})
       media = options.delete(:media)
       media_attr = media.nil? ? nil : " media=\"#{media}\""
       options = Helpers.default_path_options[:stylesheet_path].merge(options)
